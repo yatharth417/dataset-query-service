@@ -1,0 +1,157 @@
+{
+  "info": {
+    "name": "Dataset Query Service API",
+    "_postman_id": "c1f728c3-e89a-4c22-8d76-dataset-query-v1",
+    "description": "Postman test suite for Dynamic JSON Group-By and Sort-By Operators",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Insert Record 1 (John Doe)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"name\": \"John Doe\",\n  \"age\": 30,\n  \"department\": \"Engineering\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/employee_dataset/record",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "employee_dataset", "record"]
+        }
+      }
+    },
+    {
+      "name": "2. Insert Record 2 (Jane Smith)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 2,\n  \"name\": \"Jane Smith\",\n  \"age\": 25,\n  \"department\": \"Engineering\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/employee_dataset/record",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "employee_dataset", "record"]
+        }
+      }
+    },
+    {
+      "name": "3. Insert Record 3 (Alice Brown)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 3,\n  \"name\": \"Alice Brown\",\n  \"age\": 28,\n  \"department\": \"Marketing\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/employee_dataset/record",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "employee_dataset", "record"]
+        }
+      }
+    },
+    {
+      "name": "4. Query Group-By Department",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/employee_dataset/query?groupBy=department",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "employee_dataset", "query"],
+          "query": [
+            {
+              "key": "groupBy",
+              "value": "department"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Query Sort-By Age Ascending",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/employee_dataset/query?sortBy=age&order=asc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "employee_dataset", "query"],
+          "query": [
+            {
+              "key": "sortBy",
+              "value": "age"
+            },
+            {
+              "key": "order",
+              "value": "asc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Error Case - Missing Query Parameters (400)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/employee_dataset/query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "employee_dataset", "query"]
+        }
+      }
+    },
+    {
+      "name": "7. Error Case - Non-Existent Dataset (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dataset/unknown_dataset/query?groupBy=department",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "dataset", "unknown_dataset", "query"],
+          "query": [
+            {
+              "key": "groupBy",
+              "value": "department"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
