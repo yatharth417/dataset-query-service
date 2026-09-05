@@ -1,0 +1,25 @@
+# Maven
+target/
+*.class
+
+# IDE
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+
+# Local databases
+*.db
+*.mv.db
+*.h2.db
+
+# Local environment / secrets
+.env
+application-local.yml
+application-local.yaml
+application-local.properties
